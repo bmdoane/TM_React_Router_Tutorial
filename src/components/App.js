@@ -6,13 +6,20 @@ import {
 import Home from './Home'
 import Players from './Players'
 import Teams from './Teams'
+import Navbar from './Navbar'
 
 class App extends Component {
   render() {
     return (
-      <div>
-        React Router
-      </div>
+      <Router>
+        <div>
+          <Navbar />
+
+          <Route path='/' exact component={Home} />
+          <Route path='/players' component={Players} />
+          <Route path='/teams' component={Teams} />
+        </div>
+      </Router>
     )
   }
 }
