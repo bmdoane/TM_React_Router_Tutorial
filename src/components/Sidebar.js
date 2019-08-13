@@ -16,7 +16,7 @@ function CustomLink ({ to, children }) {
     <Route
       path={to.pathname}
       children={({ match }) => (
-        <li style={{ listStyleType: 'none', fontWeight: match ? 'bold' : 'normal' }}>
+        <li style={{listStyleType: 'none', fontWeight: match ? 'bold' : 'normal'}}>
           <Link to={to}>{children}</Link>
         </li>
       )}

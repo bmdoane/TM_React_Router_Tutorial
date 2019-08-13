@@ -43,7 +43,7 @@ export default class Teams extends Component {
             <Team id={match.params.teamId}>
               {(team) => team === null
                 ? <h1>LOADING</h1>
-                : <div style={{ width: '100%' }}>
+                : <div style={{width: '100%'}}>
                     <TeamLogo id={team.id} className='center' />
                     <h1 className='medium-header'>{team.name}</h1>
                     <ul className='info-list row'>
