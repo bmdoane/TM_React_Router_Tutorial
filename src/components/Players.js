@@ -62,7 +62,7 @@ export default class Players extends Component {
                 <ul className='info-list' style={{ marginRight: 80 }}>
                   <li>Team
                     <div>
-                      <Link style={{ color: '#68809a'}} to={`/${teamId}`}>
+                      <Link style={{color: '#68809a'}} to={`/${teamId}`}>
                         {teamId[0].toUpperCase() + teamId.slice(1)}
                       </Link>
                     </div>
