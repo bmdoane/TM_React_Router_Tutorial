@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Sidebar from './Sidebar'
 import { getTeamNames } from '../api'
+import { Route, Link } from 'react-router-dom'
+import TeamLogo from './TeamLogo'
+import Team from './Team'
 
 export default class Teams extends Component {
   state = {
@@ -32,6 +35,32 @@ export default class Teams extends Component {
         {loading === false && location.pathname === '/teams'
           ? <div className='sidebar-instruction'>Select a team</div>
           : null}
+        {/*
+          <Team> will receive an id of the team that it should fetch info for and when it get it, it's going to invoke its props.children, passing it that team.
+        */}
+        <Route path={`${match.url}/:teamId`} render={({ match }) => (
+          <div className='panel'>
+            <Team id={match.params.teamId}>
+              {(team) => team === null
+                ? <h1>LOADING</h1>
+                : <div style={{ width: '100%' }}>
+                    <TeamLogo id={team.id} className='center' />
+                    <h1 className='medium-header'>{team.name}</h1>
+                    <ul className='info-list row'>
+                      <li>Established<div>{team.established}</div></li>
+                      <li>Manager<div>{team.manager}</div></li>
+                      <li>Coach<div>{team.coach}</div></li>
+                    </ul>
+                    <Link
+                      className='center btn-main'
+                      to={`/${match.params.teamId}`}
+                    >
+                      {team.name} Team Page
+                    </Link>
+                  </div>}
+            </Team>
+          </div>
+        )} />
       </div>
     )
   }
