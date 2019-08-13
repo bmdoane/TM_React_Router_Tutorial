@@ -5,7 +5,7 @@ import slug from 'slug'
 
 Sidebar.propTypes = {
   title: PropTypes.string.isRequired,
-  list: PropTypes.string.isRequired,
+  list: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
 }
 
@@ -26,7 +26,7 @@ function CustomLink ({ to, children }) {
 
 export default function Sidebar ({ title, list, loading, location, match }) {
   return loading === true
-    ? <h1></h1>
+    ? <h1>Loading</h1>
     : <div>
         <h3 className='header'>{title}</h3>
         <ul className='sidebar-list'>
