@@ -24,11 +24,11 @@ export default class TeamPage extends Component {
         }))
       })
   }
+  // If user types in non-existent team name to url, redirected to home route
   render() {
     const { loading, articles, teamNames } = this.state
     const { match } = this.props
     const { teamId } = match.params
-    {/* If user types in non-existent team name to url, redirected to home route */}
     if (
       loading === false &&
       teamNames.includes(teamId) === false
